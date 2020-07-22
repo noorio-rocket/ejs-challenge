@@ -33,6 +33,19 @@ app.get('/compose',(req,res)=>{
 res.render("compose")
 });
 
+app.get('/posts/:state',(req,res)=>{
+  console.log(req.params.state)
+  if(bodyList.findIndex(x => x.title === req.params.state) === -1)
+  {
+    console.log("Not Found !")
+  }
+  else
+  {
+    console.log("Element is found !")
+  }
+  res.redirect('/')
+});
+
 
 app.post('/compose',(req,res)=>{
   const body = {
